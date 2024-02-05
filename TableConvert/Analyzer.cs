@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace TableConvert
@@ -9,25 +10,36 @@ namespace TableConvert
         public static string[][] GetTable(string text)
         {
             string[] lines = text.Replace("\r", string.Empty).Split('\n');
-            Formats formats = Formats.None;
+            Formats format = Formats.None;
             var result = new List<string[]>(lines.Length);
             int columnLength = -1;
 
             for (int i = 0; i < lines.Length; ++i)
             {
                 string line = lines[i];
-                Formats prevFormats = formats;
+                Formats prevFormat = format;
 
                 try
                 {
-                    formats = GetColumns(line, out string[] columns);
+                    format = GetColumns(line, out string[] columns);
 
-                    if ((prevFormats != Formats.None) && (prevFormats != formats))
+                    if (((prevFormat == Formats.Markdown) && (format == Formats.Lattice))
+                        || ((i == 0) && (format == Formats.Lattice) && (columns != null)))
                     {
-                        throw new Exception("The format is incorrect.");
+                        format = Formats.Markdown;
                     }
 
-                    formats = prevFormats;
+                    if (prevFormat != Formats.None)
+                    {
+                        if (prevFormat != format)
+                        {
+                            throw new Exception("The format is incorrect.");
+                        }
+                    }
+                    else
+                    {
+                        prevFormat = format;
+                    }
 
                     if (columns == null)
                     {
@@ -40,6 +52,12 @@ namespace TableConvert
                     }
 
                     columnLength = columns.Length;
+
+                    if (format == Formats.Lattice)
+                    {
+                        columns = columns.Select(n => n.Trim()).ToArray();
+                    }
+
                     result.Add(columns);
                 }
                 catch
@@ -58,14 +76,22 @@ namespace TableConvert
 
             do
             {
-                if (line.StartsWith("|") && line.StartsWith("|"))
+                if (Regex.IsMatch(line, "^\\+(\\-+\\+)+$"))
                 {
-                    result = Formats.Markdown;
+                    columns = null;
+                    return Formats.Lattice;
+                }
 
+                if (line.StartsWith("|") && line.EndsWith("|"))
+                {
                     if (Regex.IsMatch(line, "\\|(\\s*\\:*-{2,}\\:*\\s*)\\|"))
                     {
                         columns = null;
-                        return result;
+                        return Formats.Markdown;
+                    }
+                    else
+                    {
+                        result = Formats.Lattice;
                     }
 
                     matches = Regex.Matches(line, "(?<=\\|)([^\\|]*?)(?=(\\|))");

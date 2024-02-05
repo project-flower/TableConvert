@@ -2,6 +2,6 @@
 {
     public enum Formats
     {
-        None, Csv, Markdown, Tsv
+        None, Csv, Markdown, Lattice, Tsv
     }
 }
