@@ -5,6 +5,17 @@ namespace TableConvert
 {
     public partial class FormMain : Form
     {
+        #region Public Methods
+
+        public FormMain()
+        {
+            InitializeComponent();
+        }
+
+        #endregion
+
+        #region Private Methods
+
         private void DoConvert(Formats format, IWin32Window control)
         {
             try
@@ -24,10 +35,9 @@ namespace TableConvert
             MessageBox.Show(this, message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public FormMain()
-        {
-            InitializeComponent();
-        }
+        #endregion
+
+        // Designer's Methods
 
         private void buttonCsv_Click(object sender, EventArgs e)
         {

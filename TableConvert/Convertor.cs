@@ -6,6 +6,8 @@ namespace TableConvert
 {
     public static class Convertor
     {
+        #region Public Methods
+
         public static string Convert(string[][] table, Formats format)
         {
             var builder = new StringBuilder();
@@ -52,6 +54,10 @@ namespace TableConvert
             return builder.ToString();
         }
 
+        #endregion
+
+        #region Private Methods
+
         private static string ConvertToLine(string[] columns, char splitter)
         {
             int columnLength = columns.Length;
@@ -84,5 +90,7 @@ namespace TableConvert
 
             return $"|{string.Join("|", results)}|";
         }
+
+        #endregion
     }
 }

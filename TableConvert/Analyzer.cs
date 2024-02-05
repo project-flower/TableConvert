@@ -7,6 +7,8 @@ namespace TableConvert
 {
     public static class Analyzer
     {
+        #region Public Methods
+
         public static string[][] GetTable(string text)
         {
             string[] lines = text.Replace("\r", string.Empty).Split('\n');
@@ -69,6 +71,10 @@ namespace TableConvert
             return result.ToArray();
         }
 
+        #endregion
+
+        #region Private Methods
+
         private static Formats GetColumns(string line, out string[] columns)
         {
             Formats result;
@@ -127,5 +133,7 @@ namespace TableConvert
 
             return result;
         }
+
+        #endregion
     }
 }
