@@ -16,12 +16,11 @@ namespace TableConvert
             for (int i = 0; i < lines.Length; ++i)
             {
                 string line = lines[i];
-                string[] columns;
                 Formats prevFormats = formats;
 
                 try
                 {
-                    formats = GetColumns(line, out columns);
+                    formats = GetColumns(line, out string[] columns);
 
                     if ((prevFormats != Formats.None) && (prevFormats != formats))
                     {
