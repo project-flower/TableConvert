@@ -10,7 +10,8 @@ namespace TableConvert
             try
             {
                 Clipboard.SetText(Convertor.Convert(Analyzer.GetTable(textBox.Text.TrimEnd('\r', '\n')), format));
-                toolTip.Show("Copied!", control);
+                labelMessage.Visible = true;
+                timerMessage.Start();
             }
             catch (Exception exception)
             {
@@ -55,5 +56,10 @@ namespace TableConvert
             DoConvert(Formats.Tsv, buttonTsv);
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            timerMessage.Stop();
+            labelMessage.Visible = false;
+        }
     }
 }

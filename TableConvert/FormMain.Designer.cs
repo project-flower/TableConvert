@@ -35,7 +35,8 @@ namespace TableConvert
             this.buttonTsv = new System.Windows.Forms.Button();
             this.buttonCsv = new System.Windows.Forms.Button();
             this.buttonMarkdown = new System.Windows.Forms.Button();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.timerMessage = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // textBox
@@ -103,11 +104,32 @@ namespace TableConvert
             this.buttonMarkdown.UseVisualStyleBackColor = true;
             this.buttonMarkdown.Click += new System.EventHandler(this.buttonMarkdown_Click);
             // 
+            // labelMessage
+            // 
+            this.labelMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMessage.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelMessage.ForeColor = System.Drawing.Color.Blue;
+            this.labelMessage.Location = new System.Drawing.Point(218, 337);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(364, 104);
+            this.labelMessage.TabIndex = 5;
+            this.labelMessage.Text = "Copied !";
+            this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMessage.Visible = false;
+            // 
+            // timerMessage
+            // 
+            this.timerMessage.Interval = 2000;
+            this.timerMessage.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonMarkdown);
             this.Controls.Add(this.buttonCsv);
             this.Controls.Add(this.buttonTsv);
@@ -127,7 +149,8 @@ namespace TableConvert
         private System.Windows.Forms.Button buttonTsv;
         private System.Windows.Forms.Button buttonCsv;
         private System.Windows.Forms.Button buttonMarkdown;
-        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.Timer timerMessage;
     }
 }
 
