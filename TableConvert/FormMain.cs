@@ -16,7 +16,7 @@ namespace TableConvert
 
         #region Private Methods
 
-        private void DoConvert(Formats format, IWin32Window control)
+        private void DoConvert(Formats format)
         {
             try
             {
@@ -41,12 +41,12 @@ namespace TableConvert
 
         private void buttonCsv_Click(object sender, EventArgs e)
         {
-            DoConvert(Formats.Csv, buttonCsv);
+            DoConvert(Formats.Csv);
         }
 
         private void buttonMarkdown_Click(object sender, EventArgs e)
         {
-            DoConvert(Formats.Markdown, buttonMarkdown);
+            DoConvert(Formats.Markdown);
         }
 
         private void buttonPaste_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace TableConvert
 
         private void buttonTsv_Click(object sender, EventArgs e)
         {
-            DoConvert(Formats.Tsv, buttonTsv);
+            DoConvert(Formats.Tsv);
         }
 
         private void timer_Tick(object sender, EventArgs e)
