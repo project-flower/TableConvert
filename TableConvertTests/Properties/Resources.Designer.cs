@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TableConvert.Properties {
+namespace TableConvertTests.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TableConvert.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TableConvert.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TableConvertTests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,24 @@ namespace TableConvert.Properties {
         }
         
         /// <summary>
-        ///   _|[-]|[!]|\.|\(|\)|\[|\]|\{|\}|\*|\\|#|`|\+ に類似しているローカライズされた文字列を検索します。
+        ///   |1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
+        ///|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+        ///|\_|\-|\!|\.|\(|\)|\[|\]|\{|\}|\*|\\|\#|\`|\+|
+        /// に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string EscapesOfMarkdown {
+        internal static string Expected001 {
             get {
-                return ResourceManager.GetString("EscapesOfMarkdown", resourceCulture);
+                return ResourceManager.GetString("Expected001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+        ///_,-,!,.,(,),[,],{,},*,\,#,`,+ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Input001 {
+            get {
+                return ResourceManager.GetString("Input001", resourceCulture);
             }
         }
     }

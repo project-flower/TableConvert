@@ -117,7 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EscapesOfMarkdown" xml:space="preserve">
-    <value>_|[-]|[!]|\.|\(|\)|\[|\]|\{|\}|\*|\\|#|`|\+</value>
+  <data name="Expected001" xml:space="preserve">
+    <value>|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|\_|\-|\!|\.|\(|\)|\[|\]|\{|\}|\*|\\|\#|\`|\+|
+</value>
+  </data>
+  <data name="Input001" xml:space="preserve">
+    <value>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+_,-,!,.,(,),[,],{,},*,\,#,`,+</value>
   </data>
 </root>

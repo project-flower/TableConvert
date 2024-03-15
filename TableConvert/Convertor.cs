@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using TableConvert.Properties;
 
 namespace TableConvert
 {
@@ -85,7 +87,7 @@ namespace TableConvert
 
             for (int i = 0; i < columnLength; ++i)
             {
-                results[i] = columns[i].Replace("|", "\\|");
+                results[i] = Regex.Replace(columns[i], Resources.EscapesOfMarkdown, "\\$0").Replace("|", "\\|");
             }
 
             return $"|{string.Join("|", results)}|";
