@@ -10,6 +10,7 @@ namespace TableConvert
         public FormMain()
         {
             InitializeComponent();
+            MinimumSize = Size;
         }
 
         #endregion
