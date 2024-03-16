@@ -11,7 +11,7 @@ namespace TableConvert
 
         public static string[][] GetTable(string text)
         {
-            string[] lines = text.Replace("\r", string.Empty).Split('\n');
+            string[] lines = text.Replace("\r", string.Empty).TrimEnd('\n').Split('\n');
             Formats format = Formats.None;
             var result = new List<string[]>(lines.Length);
             int columnLength = -1;
@@ -25,13 +25,25 @@ namespace TableConvert
                 {
                     format = GetColumns(line, out string[] columns);
 
-                    if (((prevFormat == Formats.Markdown) && (format == Formats.Lattice))
-                        || ((i == 0) && (format == Formats.Lattice) && (columns != null)))
+                    if (i > 0)
                     {
-                        format = Formats.Markdown;
+                        if ((prevFormat == Formats.Markdown && format.HasFlag(Formats.Markdown))
+                            || (prevFormat.HasFlag(Formats.Markdown) && format == Formats.Markdown))
+                        {
+                            // Markdown format is determined by the first and second lines.
+                            format = Formats.Markdown;
+                        }
+                        else if (prevFormat == Formats.Lattice && format.HasFlag(Formats.Lattice))
+                        {
+                            format = Formats.Lattice;
+                        }
+                        else if (prevFormat.HasFlag(Formats.Jira) && format.HasFlag(Formats.Jira))
+                        {
+                            format = Formats.Jira;
+                        }
                     }
 
-                    if (prevFormat != Formats.None)
+                    if (i > 1)
                     {
                         if (prevFormat != format)
                         {
@@ -54,6 +66,20 @@ namespace TableConvert
                     }
 
                     columnLength = columns.Length;
+
+                    if ((format & (Formats.Markdown | Formats.Jira)) != 0)
+                    {
+                        columns = columns.Select(n =>
+                        {
+                            if (n == " " && format.HasFlag(Formats.Jira))
+                            {
+                                // Set White-space to empty columns in JIRA
+                                return string.Empty;
+                            }
+
+                            return Regex.Replace(n, "(\\\\)(\\S)", "$2");
+                        }).ToArray();
+                    }
 
                     if (format == Formats.Lattice)
                     {
@@ -90,6 +116,14 @@ namespace TableConvert
 
                 if (line.StartsWith("|") && line.EndsWith("|"))
                 {
+                    matches = Regex.Matches(line, "(?<=\\|{2})(.*?)(?=(\\|{2}))");
+
+                    if (matches.Count > 0)
+                    {
+                        result = Formats.Jira;
+                        break;
+                    }
+
                     if (Regex.IsMatch(line, "\\|(\\s*\\:*-{2,}\\:*\\s*)\\|"))
                     {
                         columns = null;
@@ -97,7 +131,7 @@ namespace TableConvert
                     }
                     else
                     {
-                        result = Formats.Lattice;
+                        result = (Formats.Lattice | Formats.Markdown | Formats.Jira);
                     }
 
                     matches = Regex.Matches(line, "(?<=\\|)([^\\|]*?)(?=(\\|))");

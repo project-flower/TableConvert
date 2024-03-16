@@ -61,14 +61,46 @@ namespace TableConvertTests.Properties {
         }
         
         /// <summary>
+        ///   ||1||2||3||4||5||6||7||8||9||10||11||12||13||14||15||
+        ///|\_|\-|\:|\?|\.|\(|\)|\{|\}|\*|\\|\#|\^|\+|\~|
+        /// に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ExpectedJira001 {
+            get {
+                return ResourceManager.GetString("ExpectedJira001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   |1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
         ///|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
         ///|\_|\-|\!|\.|\(|\)|\[|\]|\{|\}|\*|\\|\#|\`|\+|
         /// に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string Expected001 {
+        internal static string ExpectedMarkdown001 {
             get {
-                return ResourceManager.GetString("Expected001", resourceCulture);
+                return ResourceManager.GetString("ExpectedMarkdown001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+        ///a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,
+        ///p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad, に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ExpectedTable001 {
+            get {
+                return ResourceManager.GetString("ExpectedTable001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+        ///_,-,:,?,.,(,),{,},*,\,#,^,+,~ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string InputJira001 {
+            get {
+                return ResourceManager.GetString("InputJira001", resourceCulture);
             }
         }
         
@@ -76,9 +108,57 @@ namespace TableConvertTests.Properties {
         ///   1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
         ///_,-,!,.,(,),[,],{,},*,\,#,`,+ に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string Input001 {
+        internal static string InputMarkdown001 {
             get {
-                return ResourceManager.GetString("Input001", resourceCulture);
+                return ResourceManager.GetString("InputMarkdown001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ||1||2||3||4||5||6||7||8||9||10||11||12||13||14||15|| ||
+        ///|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o| |
+        ///|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad| | に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TableJira001 {
+            get {
+                return ResourceManager.GetString("TableJira001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   |1|2|3|4|5|6|7|8|9|10|11|12|13|14|15| |
+        ///|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o| |
+        ///|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad| | に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TableJira002 {
+            get {
+                return ResourceManager.GetString("TableJira002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   +---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+
+        ///| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |  |
+        ///+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+
+        ///| a | b | c | d | e | f | g | h | i | j  | k  | l  | m  | n  | o  |  |
+        ///| p | q | r | s | t | u | v | w | x | y  | z  | aa | ab | ac | ad |  |
+        ///+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TableLattice001 {
+            get {
+                return ResourceManager.GetString("TableLattice001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   |1|2|3|4|5|6|7|8|9|10|11|12|13|14|15||
+        ///|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+        ///|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o||
+        ///|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad|| に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TableMarkdown001 {
+            get {
+                return ResourceManager.GetString("TableMarkdown001", resourceCulture);
             }
         }
     }

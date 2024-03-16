@@ -28,6 +28,9 @@ namespace TableConvert
                     case Formats.Csv:
                         builder.AppendLine(ConvertToLine(line, ','));
                         continue;
+                    case Formats.Jira:
+                        builder.AppendLine(ConvertToJira(line, (i == 0)));
+                        break;
                     case Formats.Markdown:
                         string markdown = ConvertToMarkdown(line);
                         builder.AppendLine(markdown);
@@ -59,6 +62,22 @@ namespace TableConvert
         #endregion
 
         #region Private Methods
+
+        private static string ConvertToJira(string[] columns, bool header)
+        {
+            int columnLength = columns.Length;
+            var results = new string[columnLength];
+
+            for (int i = 0; i < columnLength; ++i)
+            {
+                string column = Regex.Replace(columns[i], Resources.EscapesOfJira, "\\$0").Replace("|", "\\|");
+                // Set White-space to empty columns in JIRA
+                results[i] = (string.IsNullOrEmpty(column) ? " " : column);
+            }
+
+            string splitter = (header ? "||" : "|");
+            return $"{splitter}{string.Join(splitter, results)}{splitter}";
+        }
 
         private static string ConvertToLine(string[] columns, char splitter)
         {

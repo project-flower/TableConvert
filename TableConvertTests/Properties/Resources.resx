@@ -117,14 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Expected001" xml:space="preserve">
+  <data name="ExpectedJira001" xml:space="preserve">
+    <value>||1||2||3||4||5||6||7||8||9||10||11||12||13||14||15||
+|\_|\-|\:|\?|\.|\(|\)|\{|\}|\*|\\|\#|\^|\+|\~|
+</value>
+  </data>
+  <data name="ExpectedMarkdown001" xml:space="preserve">
     <value>|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |\_|\-|\!|\.|\(|\)|\[|\]|\{|\}|\*|\\|\#|\`|\+|
 </value>
   </data>
-  <data name="Input001" xml:space="preserve">
+  <data name="ExpectedTable001" xml:space="preserve">
+    <value>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,
+p,q,r,s,t,u,v,w,x,y,z,aa,ab,ac,ad,</value>
+  </data>
+  <data name="InputJira001" xml:space="preserve">
+    <value>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+_,-,:,?,.,(,),{,},*,\,#,^,+,~</value>
+  </data>
+  <data name="InputMarkdown001" xml:space="preserve">
     <value>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 _,-,!,.,(,),[,],{,},*,\,#,`,+</value>
+  </data>
+  <data name="TableJira001" xml:space="preserve">
+    <value>||1||2||3||4||5||6||7||8||9||10||11||12||13||14||15|| ||
+|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o| |
+|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad| |</value>
+  </data>
+  <data name="TableJira002" xml:space="preserve">
+    <value>|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15| |
+|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o| |
+|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad| |</value>
+  </data>
+  <data name="TableLattice001" xml:space="preserve">
+    <value>+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |  |
++---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+
+| a | b | c | d | e | f | g | h | i | j  | k  | l  | m  | n  | o  |  |
+| p | q | r | s | t | u | v | w | x | y  | z  | aa | ab | ac | ad |  |
++---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+--+</value>
+  </data>
+  <data name="TableMarkdown001" xml:space="preserve">
+    <value>|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15||
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o||
+|p|q|r|s|t|u|v|w|x|y|z|aa|ab|ac|ad||</value>
   </data>
 </root>

@@ -35,6 +35,7 @@ namespace TableConvert
             this.buttonTsv = new System.Windows.Forms.Button();
             this.buttonCsv = new System.Windows.Forms.Button();
             this.buttonMarkdown = new System.Windows.Forms.Button();
+            this.buttonJira = new System.Windows.Forms.Button();
             this.labelMessage = new System.Windows.Forms.Label();
             this.timerMessage = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -96,13 +97,25 @@ namespace TableConvert
             // 
             this.buttonMarkdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMarkdown.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonMarkdown.Location = new System.Drawing.Point(588, 366);
+            this.buttonMarkdown.Location = new System.Drawing.Point(588, 340);
             this.buttonMarkdown.Name = "buttonMarkdown";
             this.buttonMarkdown.Size = new System.Drawing.Size(200, 46);
             this.buttonMarkdown.TabIndex = 4;
             this.buttonMarkdown.Text = "&Markdown";
             this.buttonMarkdown.UseVisualStyleBackColor = true;
             this.buttonMarkdown.Click += new System.EventHandler(this.buttonMarkdown_Click);
+            // 
+            // buttonJira
+            // 
+            this.buttonJira.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonJira.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonJira.Location = new System.Drawing.Point(588, 392);
+            this.buttonJira.Name = "buttonJira";
+            this.buttonJira.Size = new System.Drawing.Size(200, 46);
+            this.buttonJira.TabIndex = 5;
+            this.buttonJira.Text = "&JIRA";
+            this.buttonJira.UseVisualStyleBackColor = true;
+            this.buttonJira.Click += new System.EventHandler(this.buttonJira_Click);
             // 
             // labelMessage
             // 
@@ -113,7 +126,7 @@ namespace TableConvert
             this.labelMessage.Location = new System.Drawing.Point(218, 337);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(364, 104);
-            this.labelMessage.TabIndex = 5;
+            this.labelMessage.TabIndex = 6;
             this.labelMessage.Text = "Copied !";
             this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelMessage.Visible = false;
@@ -129,6 +142,7 @@ namespace TableConvert
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelMessage);
+            this.Controls.Add(this.buttonJira);
             this.Controls.Add(this.buttonMarkdown);
             this.Controls.Add(this.buttonCsv);
             this.Controls.Add(this.buttonTsv);
@@ -148,6 +162,7 @@ namespace TableConvert
         private System.Windows.Forms.Button buttonTsv;
         private System.Windows.Forms.Button buttonCsv;
         private System.Windows.Forms.Button buttonMarkdown;
+        private System.Windows.Forms.Button buttonJira;
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.Timer timerMessage;
     }

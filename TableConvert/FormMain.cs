@@ -44,6 +44,11 @@ namespace TableConvert
             DoConvert(Formats.Csv);
         }
 
+        private void buttonJira_Click(object sender, EventArgs e)
+        {
+            DoConvert(Formats.Jira);
+        }
+
         private void buttonMarkdown_Click(object sender, EventArgs e)
         {
             DoConvert(Formats.Markdown);

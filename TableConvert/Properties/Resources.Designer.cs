@@ -61,6 +61,15 @@ namespace TableConvert.Properties {
         }
         
         /// <summary>
+        ///   _|[-]|:|\?|\.|\(|\)|\{|\}|\*|\\|#|\^|\+|~ に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string EscapesOfJira {
+            get {
+                return ResourceManager.GetString("EscapesOfJira", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   _|[-]|[!]|\.|\(|\)|\[|\]|\{|\}|\*|\\|#|`|\+ に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string EscapesOfMarkdown {

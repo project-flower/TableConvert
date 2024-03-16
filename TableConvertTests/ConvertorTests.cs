@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using TableConvertTests;
 using TableConvertTests.Properties;
 
 namespace TableConvert.Tests
@@ -6,24 +7,18 @@ namespace TableConvert.Tests
     [TestFixture()]
     public class ConvertorTests
     {
-        private static string[][] ToTable(string csv)
+        [Test()]
+        public void ConvertJiraTest001()
         {
-            string[] lines = csv.Replace("\r", string.Empty).Split('\n');
-            var result = new string[lines.Length][];
-
-            for (int i = 0; i < lines.Length; ++i)
-            {
-                result[i] = lines[i].Split(',');
-            }
-
-            return result;
+            string actual = Convertor.Convert(Common.ToTable(Resources.InputJira001), Formats.Jira);
+            Assert.AreEqual(Resources.ExpectedJira001, actual);
         }
 
         [Test()]
-        public void ConvertTest()
+        public void ConvertMarkdownTest001()
         {
-            string actual = Convertor.Convert(ToTable(Resources.Input001), Formats.Markdown);
-            Assert.AreEqual(Resources.Expected001, actual);
+            string actual = Convertor.Convert(Common.ToTable(Resources.InputMarkdown001), Formats.Markdown);
+            Assert.AreEqual(Resources.ExpectedMarkdown001, actual);
         }
     }
 }
